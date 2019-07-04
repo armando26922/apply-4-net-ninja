@@ -33,13 +33,32 @@ namespace ninja.model.Entity {
             return this.Detail;
 
         }
+        public InvoiceDetail GetDetailByID(long id)
+        {
+            for (int i = 0; i < this.Detail.Count; i++)
+                if (this.Detail[i].Id == id)
+                    return this.Detail[i];
 
+            return null;
+
+        }
+        public void DeleteDetailsById(InvoiceDetail invoicedetail)
+        {
+
+            this.Detail.Remove(invoicedetail);
+
+        }
         public void AddDetail(InvoiceDetail detail) {
 
             this.Detail.Add(detail);
 
         }
+        public void UpdateDetail(IList<InvoiceDetail> detail)
+        {
 
+            this.Detail=detail;
+
+        }
         public void DeleteDetails() {
 
             this.Detail.Clear();

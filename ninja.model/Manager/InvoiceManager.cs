@@ -35,7 +35,18 @@ namespace ninja.model.Manager {
             this._mock.Insert(item);
 
         }
+        public InvoiceDetail getInvoiceDetail(IList<InvoiceDetail> detail,long id)
+        {
+             for (int i = 0; i < detail.Count; i++)
+                if (detail[i].Id == id)
+                    return  detail[i];
+            return null;
+        }
 
+        public void Update(Invoice invoice)
+        {
+            this._mock.Update(invoice);
+        }
         public void Delete(long id) {
 
             Invoice invoice = this.GetById(id);
@@ -48,7 +59,29 @@ namespace ninja.model.Manager {
             return this._mock.Exists(id);
 
         }
+        public void DeleteDetail(long id,long idInvoice)
+        {  try
+            {
+                Invoice invoice = GetById(idInvoice);
+                invoice.DeleteDetailsById(getInvoiceDetail(invoice.GetDetail(), id));
+                Update(invoice);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
 
+        
+        public long GetLastetId(IList<InvoiceDetail> listDetail)
+        {   long mayor=-1;
+            for (int i = 0; i < listDetail.Count; i++)
+                if (listDetail[i].Id > mayor)
+                    mayor = listDetail[i].Id;
+            mayor = mayor + 1;
+            return mayor;
+
+        }
         public void UpdateDetail(long id, IList<InvoiceDetail> detail) {
 
             /*
@@ -57,9 +90,9 @@ namespace ninja.model.Manager {
              */
 
             #region Escribir el código dentro de este bloque
-
-            throw new NotImplementedException();
-
+            Invoice invoice = GetById(id);
+            invoice.UpdateDetail(detail);
+            Update(invoice);
             #endregion Escribir el código dentro de este bloque
 
         }
