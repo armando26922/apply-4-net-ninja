@@ -25,7 +25,7 @@ namespace ninja.test {
             manager.Insert(invoice);
             Invoice result = manager.GetById(id);
 
-            Assert.AreEqual(invoice.Id, result.Id);
+            Assert.AreEqual(invoice, result);
 
         }
 

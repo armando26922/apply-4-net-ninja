@@ -21,6 +21,7 @@ namespace ninja.Controllers
         InvoiceManager invoices = new InvoiceManager();
         public ActionResult Index()
         {
+          
             return View(invoices.GetAll());
         } 
 
@@ -39,7 +40,7 @@ namespace ninja.Controllers
         // GET: Invoices/Create
         public ActionResult Create()
         {
-            return View();
+             return View();
         }
 
         // POST: Invoices/Create

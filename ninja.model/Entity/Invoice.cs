@@ -23,7 +23,16 @@ namespace ninja.model.Entity {
         /// <summary>
         /// Numero de factura
         /// </summary>
-      
+
+        public override bool Equals(object obj)
+        {
+            Invoice invoice =(Invoice)obj;
+            if ((invoice.Id == this.Id) && (invoice.Type == this.Type))
+            {
+                return true;
+            }
+            return false;
+        }
         public long Id { get; set; }
         public string Type { get; set; }
         private IList<InvoiceDetail> Detail { get; set; }

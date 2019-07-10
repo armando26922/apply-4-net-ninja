@@ -77,8 +77,8 @@ namespace ninja.Controllers
         { Invoice invoice = null;
             if (ModelState.IsValid)
             {   invoice = invoices.GetById(invoiceDetail.InvoiceId);
-                invoices.UpdateDetail(invoice.Id, invoice.GetDetail());
-                return RedirectToAction("Index");
+                invoices.UpdateDetailInvoices(invoiceDetail, invoice);
+                return RedirectToAction("Index","Invoices");
             }
             return View(invoiceDetail);
         }
