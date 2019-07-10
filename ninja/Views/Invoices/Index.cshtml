@@ -1,5 +1,4 @@
-﻿@model IEnumerable<ninja.model.Entity.Invoice>
-
+﻿ 
 @{
     ViewBag.Title = "Index";
 }
@@ -12,25 +11,25 @@
 <table class="table">
     <tr>
         <th scope="col">
-            @Html.DisplayNameFor(model => model.Id)
+                   ID
         </th>
         <th scope="col">
-            @Html.DisplayNameFor(model => model.Type)
+                  Type
         </th>
         <th scope="col">
 
         </th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in ViewBag.Invoices   ) {
     <tr>
         <td scope="row">
-            @Html.DisplayFor(modelItem => item.Id)
-
+            @item.Id
 
         </td>
         <td scope="row">
-            @Html.DisplayFor(modelItem => item.Type)
+            @item.Type
+
  
         </td>
          

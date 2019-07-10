@@ -1,5 +1,4 @@
-﻿@model ninja.model.Entity.Invoice
-
+﻿ 
 @{
     ViewBag.Title = "Delete";
 }
@@ -12,11 +11,11 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Type)
+            Type
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Type)
+          @ViewBag.Invoice.Type 
         </dd>
 
     </dl>

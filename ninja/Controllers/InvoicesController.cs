@@ -21,8 +21,8 @@ namespace ninja.Controllers
         InvoiceManager invoices = new InvoiceManager();
         public ActionResult Index()
         {
-          
-            return View(invoices.GetAll());
+            ViewBag.Invoices = invoices.GetAll();
+            return View();
         } 
 
         // GET: Invoices/Details/5
@@ -34,7 +34,8 @@ namespace ninja.Controllers
             {
                 return HttpNotFound();
             }
-            return View(invoice);
+            ViewBag.Invoice = invoice;
+            return View();
         }
 
         // GET: Invoices/Create
@@ -51,12 +52,13 @@ namespace ninja.Controllers
         public ActionResult Create([Bind(Include = "Id,Type")] Invoice invoice)
         {
             if (ModelState.IsValid)
-            {   
+            {
+                invoice.Id=invoices.GetLastetIdInvoice();
                 invoices.Insert(invoice);
                 return RedirectToAction("Index");
             }
 
-            return View(invoice);
+            return View();
         }
         public ActionResult CreateDetail([Bind(Include = "Id,Type")] Invoice invoiceDetail)
         {
@@ -81,7 +83,8 @@ namespace ninja.Controllers
         public ActionResult DeleteInvoiceDetail(long id)
         {
             Invoice invoice = invoices.GetById(id);
-            return View(invoice);
+            ViewBag.Invoice = invoice;
+            return View();
         }
         public ActionResult DeleteConfirmedInvoiceDetail(long id)
         {
@@ -99,7 +102,8 @@ namespace ninja.Controllers
             {
                 return HttpNotFound();
             }
-            return View(invoice);
+            ViewBag.Invoice = invoice;
+            return View();
         }
 
         // POST: Invoices/Edit/5
@@ -121,7 +125,8 @@ namespace ninja.Controllers
         public ActionResult Delete(long id)
         {
             Invoice invoice=invoices.GetById(id);
-            return View(invoice);
+            ViewBag.Invoice = invoice;
+            return View();
         }
 
         // POST: Invoices/Delete/5

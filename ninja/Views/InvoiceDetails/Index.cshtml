@@ -1,37 +1,36 @@
-﻿@model IEnumerable<ninja.model.Entity.InvoiceDetail>
- 
+﻿ 
  
 
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.InvoiceId)
+             InvoiceId
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            Description
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Amount)
+            Amount
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UnitPrice)
+           UnitPrice
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in ViewBag.InvoicesDetails) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.InvoiceId)
+             @item.InvoiceId
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Description)
+            @item.Description
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Amount)
+          @item.Amount
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.UnitPrice)
+              @item.UnitPrice
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id , idInvoice = item.InvoiceId }) |

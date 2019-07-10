@@ -1,5 +1,4 @@
-﻿@model ninja.model.Entity.InvoiceDetail
-
+﻿ 
 @{
     ViewBag.Title = "Details";
 }
@@ -11,40 +10,40 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.InvoiceId)
+          InvoiceId
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.InvoiceId)
+            @ViewBag.InvoiceDetail.InvoiceId
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+           Description
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Description)
+            @ViewBag.InvoiceDetail.Description
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Amount)
+           Amount
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Amount)
+            @ViewBag.InvoiceDetail.Amount
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.UnitPrice)
+            UnitPrice
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.UnitPrice)
+            @ViewBag.InvoiceDetail.UnitPrice
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = ViewBag.InvoiceDetail.Id }) |
     @Html.ActionLink("Back to List", "Index","Invoices")
 </p>

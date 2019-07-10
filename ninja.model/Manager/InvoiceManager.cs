@@ -82,6 +82,18 @@ namespace ninja.model.Manager {
             return mayor;
 
         }
+        public long GetLastetIdInvoice()
+        {
+            IList<Invoice> listDetail;
+            listDetail = GetAll();
+            long mayor = -1;
+            for (int i = 0; i < listDetail.Count; i++)
+                if (listDetail[i].Id > mayor)
+                    mayor = listDetail[i].Id;
+            mayor = mayor + 1;
+            return mayor;
+
+        }
         public void UpdateDetail(long id, IList<InvoiceDetail> detail) {
 
             /*

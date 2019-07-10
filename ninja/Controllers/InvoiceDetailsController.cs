@@ -20,7 +20,8 @@ namespace ninja.Controllers
         // GET: InvoiceDetails
         public ActionResult Index(long id)
         {
-            return View(invoices.GetById(id).GetDetail());
+            ViewBag.InvoicesDetails = invoices.GetById(id).GetDetail();
+            return View();
         }
 
         // GET: InvoiceDetails/Details/5
@@ -28,7 +29,8 @@ namespace ninja.Controllers
         {
             Invoice invoice = invoices.GetById(idInvoice);
             InvoiceDetail invoiceDetail = invoice.GetDetailByID(id);
-            return View(invoiceDetail);
+            ViewBag.InvoiceDetail = invoiceDetail;
+            return View();
         }
 
         // GET: InvoiceDetails/Create
@@ -38,7 +40,8 @@ namespace ninja.Controllers
             InvoiceDetail invoiceDetail = new InvoiceDetail();
             invoiceDetail.Id= invoices.GetLastetId(invoices.GetById(idInvoice).GetDetail());
             invoiceDetail.InvoiceId = idInvoice;
-            return View(invoiceDetail);
+            ViewBag.InvoiceDetail = invoiceDetail;
+            return View();
         }
 
         // POST: InvoiceDetails/Create
@@ -65,7 +68,8 @@ namespace ninja.Controllers
         {
             Invoice invoice = invoices.GetById(idInvoice);
             InvoiceDetail invoiceDetail = invoices.getInvoiceDetail(invoice.GetDetail(), id);
-            return View(invoiceDetail);
+            ViewBag.InvoiceDetail = invoiceDetail;
+            return View();
         }
 
         // POST: InvoiceDetails/Edit/5
@@ -89,7 +93,8 @@ namespace ninja.Controllers
 
             Invoice invoice = invoices.GetById(idInvoice);
             InvoiceDetail invoiceDetail = invoice.GetDetailByID(id);
-            return View(invoiceDetail);
+            ViewBag.InvoiceDetail = invoiceDetail;
+            return View();
         }
 
         // POST: InvoiceDetails/Delete/5

@@ -1,5 +1,4 @@
-﻿@model ninja.model.Entity.InvoiceDetail
-
+﻿ 
 @{
     ViewBag.Title = "Edit";
 }
@@ -15,37 +14,37 @@
         <h4>InvoiceDetail</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
+        @Html.Hidden("Id",(long)ViewBag.InvoiceDetail.Id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.InvoiceId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("InvoiceId", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.InvoiceId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.InvoiceId, "", new { @class = "text-danger" })
+                @Html.TextBox("InvoiceId",(long)@ViewBag.InvoiceDetail.InvoiceId,  new { @class = "form-control" })
+                @Html.ValidationMessage("InvoiceID", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Description",  new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                @Html.TextBox("Description", (string)@ViewBag.InvoiceDetail.Description,  new { @class = "form-control"  })
+                @Html.ValidationMessage("Description", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Amount", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+                @Html.TextBox("Amount", (double)@ViewBag.InvoiceDetail.Amount, new { @class = "form-control" })
+                @Html.ValidationMessage("Amount", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.UnitPrice, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UnitPrice, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UnitPrice, "", new { @class = "text-danger" })
+            @Html.Label("UnitPrice", new { @class = "control-label col-md-2" })
+             <div class="col-md-10">
+                 @Html.TextBox("UnitPrice", (double)@ViewBag.InvoiceDetail.UnitPrice, new { @class = "form-control" })
+                 @Html.ValidationMessage("UnitPrice", new { @class = "text-danger" })
             </div>
         </div>
 
